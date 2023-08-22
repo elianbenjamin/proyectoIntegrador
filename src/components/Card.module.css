@@ -1,0 +1,60 @@
+.divCard{
+    background-color: hsl(0, 2%, 51%);
+    width: 250px;
+    height: 380px;
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    
+}
+.divCard2{
+    display: flex;
+    justify-content: flex-end;
+    background-color: transparent;
+    width: 250px;
+    height: 300px;
+ 
+    
+
+}
+.divCard3{
+    display: flex;
+    background-color: hsl(0, 2%, 51%);
+    justify-content: space-around;
+    
+
+}
+.divCard4{
+    
+}
+
+.buttonCard{
+    background-color: #ff3333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    
+    z-index: 20;
+    height: 30px;
+}
+
+.h3Card{
+    position: absolute;
+    z-index: 20;
+    margin: 240px 130px 0px 0px;
+    background-color: #dbdb4f ;
+    padding: 2px;
+    border-radius: 8px;
+}
+
+.imgCard{
+    height: 300px;
+    width: 250px;
+    position: absolute;
+    z-index: 10;
+    }

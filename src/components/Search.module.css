@@ -1,0 +1,21 @@
+
+.div {
+  margin-bottom: 20px;
+  
+}
+
+.input {
+  margin-top: 15px;
+  padding: 8px;
+  border-radius: 10px ;
+}
+
+
+.button {
+  background-color: hsl(161, 100%, 60%);
+  color: white;
+  border-radius: 10px;
+  padding: 8px 15px;
+  cursor: pointer;
+  
+}
