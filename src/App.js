@@ -7,25 +7,41 @@ import { Route,Routes,useLocation, useNavigate } from 'react-router-dom';
 import About from './views/About.jsx';
 import Detail from './views/Detail.jsx';
 import Login from './views/Login';
+import Favorites from './components/Favorites';
+import ErrorPage from './views/ErrorPage';
 
 
 
 
-const email = 'elian@rivera.com '
-const password = 'riveraelian1'
+
+const EMAIL = 'elian@rivera.com'
+const PASSWORD = 'rivera12'
 
 
 function App() {
    const navigate = useNavigate();
-   const [access, setAccess] = useState(false)
+   const [access, setAccess] = useState(false);
 
    const [characters, setCharacters] = useState([]);
    
    const location = useLocation();
-   const isHomePage = location.pathname === '/'
+   
 
   
+   function login (userData){
+     if(userData.password === PASSWORD && userData.email === EMAIL){
+        setAccess(true);
+        navigate('/home');
+     }
+    
+   }
    
+   useEffect(() => {
+     !access && navigate('/');
+
+     }, [access, navigate]);
+
+
    function onClose(id) {
       setCharacters(
         characters.filter((character) => {
@@ -35,16 +51,6 @@ function App() {
     }
     
     
-    const login = (userData)=>{
-      if(email === userData.email && password === userData.password){
-         setAccess(true);
-         navigate('/home')
-      }
-     
-    }
-    useEffect(() => {
-      !access && navigate('/');
-   },[access]);
 
    function onSearch(id){
       
@@ -58,9 +64,25 @@ function App() {
    })
    }
 
+   function randomHandler() {
+      let memoria = [];
+  
+      let randomId = (Math.random() * 826).toFixed();
+  
+      randomId = Number(randomId);
+  
+      if (!memoria.includes(randomId)) {
+        memoria.push(randomId);
+        onSearch(randomId);
+      } else {
+        alert("Ese personaje ya fue agregado");
+        return;
+      }
+    }
+
    return (
       <div className='App'>
-         {!isHomePage && <Nav onSearch={onSearch}/>}
+         {location.pathname !== '/' && <Nav onSearch={onSearch} setAccess={setAccess}  randomize={randomHandler}/>}
 
          
          <Routes>
@@ -68,6 +90,8 @@ function App() {
             <Route path='/home' element={ <Cards characters={characters} onClose={onClose} />}/>
             <Route path='/about' element={<About />}/>
             <Route path='/detail/:id' element={<Detail />}/>
+            <Route path='*' element={<ErrorPage />}/>
+            <Route path='/favorites' element={<Favorites />}/>
          </Routes>
         
          

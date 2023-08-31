@@ -2,9 +2,8 @@ import styles from './Search.module.css'
 import { useState } from "react"
 
 
-export default function SearchBar({onSearch}) {
+export default function SearchBar({onSearch}) {//modificar aca
       const [id, setId] = useState('');
-
       const handleChange = (event) => {
          setId(event.target.value)
       };
