@@ -30,12 +30,12 @@ const Favorites = () => {
         <option value="A">Ascendente</option>
         <option value="D">Descendente</option>
       </select>
-      <select onChange={handleFilter} name="" id="">
-      <option value="Ninguno">Ninguno</option>
-      <option value="Male">Male</option>
-      <option value="Female">Female</option>
-      <option value="Genderless">Genderless</option>
-      <option value="unknown">unknown</option>
+        <select onChange={handleFilter} name="" id="">
+        <option value="Ninguno">Ninguno</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Genderless">Genderless</option>
+        <option value="unknown">unknown</option>
       </select>
       {myFavorites?.map(
         ({ id, name, status, species, gender, origin, image }) => {
